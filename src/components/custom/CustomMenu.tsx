@@ -5,28 +5,28 @@ import { cn } from "@/lib/utils";
 
 export const CustomMenu = () => {
     const { pathname } = useLocation();
-    
-    const isActive = (path:string ) => {
+
+    const isActive = (path: string) => {
         return pathname === path;
     }
 
     return (
         <NavigationMenu>
             <NavigationMenuList>
-                
+
                 {/* Home */}
                 <NavigationMenuItem>
                     <NavigationMenuLink asChild
-                    className={cn(isActive('/') && 'bg-slate-200', 'p-2 rounded-md')}
+                        className={cn(isActive('/') && 'bg-slate-200', 'p-2 rounded-md')}
                     >
                         <Link to="/">Inicio</Link>
                     </NavigationMenuLink>
                 </NavigationMenuItem>
-                
+
                 {/* Search */}
                 <NavigationMenuItem>
                     <NavigationMenuLink asChild
-                    className={cn(isActive('/search') && 'bg-slate-200', 'p-2 rounded-md')}
+                        className={cn(isActive('/search') && 'bg-slate-200', 'p-2 rounded-md')}
                     >
                         <Link to="/search">Buscar superhéroes</Link>
                     </NavigationMenuLink>
