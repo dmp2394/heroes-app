@@ -6,6 +6,7 @@ import { useState } from "react"
 import { CustomPagination } from "@/components/custom/CustomPagination"
 
 
+
 export const HomePage = () => {
 
   const [activeTab, setActiveTab] = useState<'all' | 'favorites' | 'heroes' | 'villains'>('all');
