@@ -6,7 +6,7 @@ interface Props {
 }
 
 export const CustomPagination = ({ totalPages }: Props) => {
-    const page = 1 as number;
+    const page = 2 as number;
 
     return (
         <div className="flex items-center justify-center space-x-2">
