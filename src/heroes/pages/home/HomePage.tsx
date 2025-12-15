@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { useQuery } from '@tanstack/react-query';
 import { useSearchParams } from 'react-router';
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -8,7 +7,8 @@ import { HeroStats } from '@/heroes/components/HeroStats';
 import { HeroGrid } from '@/heroes/components/HeroGrid';
 import { CustomPagination } from '@/components/custom/CustomPagination';
 import { CustomBreadcrumbs } from '@/components/custom/CustomBreadcrumbs';
-import { getHeroesByPageAction } from '@/heroes/actions/get-heroes-by-page.action';
+import { useHeroSummary } from '@/heroes/hooks/useHeroSummary';
+import { usePaginatedHero } from '@/heroes/hooks/usePaginatedHero';
 
 export const HomePage = () => {
 
@@ -21,19 +21,10 @@ export const HomePage = () => {
   const selectedTab = useMemo(() => {
     const validTabs = ['all', 'favorites', 'heroes', 'villains'];
     return validTabs.includes(activeTab) ? activeTab : 'all';
-  }, [activeTab])
+  }, [activeTab]);
 
-
-  const { data: heroesResponse } = useQuery({
-    queryKey: ['heroes', { page, limit }],
-    queryFn: () => getHeroesByPageAction(+page, +limit),
-    staleTime: 1000 * 60 * 5, //5 min
-  })
-
-  console.log({ heroesResponse });
-  // useEffect(() => {
-  //   getHeroesByPage().then();
-  // }, []);
+  const { data: heroesResponse } = usePaginatedHero(+page,+limit);
+  const { data: summary} = useHeroSummary();
 
   return (
     <>
@@ -58,7 +49,7 @@ export const HomePage = () => {
                 return prev;
               })}
             >
-              All Characters (16)
+              Todos los personajes ({summary?.totalHeroes})
             </TabsTrigger>
             <TabsTrigger
               value="favorites"
@@ -68,7 +59,7 @@ export const HomePage = () => {
                 return prev;
               })}
             >
-              Favorites (3)
+              Favoritos (3)
             </TabsTrigger>
             <TabsTrigger
               value="heroes"
@@ -76,7 +67,7 @@ export const HomePage = () => {
                 prev.set('tab', 'heroes')
                 return prev;
               })}>
-              Heroes (12)
+              Héroes ({summary?.heroCount})
             </TabsTrigger>
             <TabsTrigger
               value="villains"
@@ -85,7 +76,7 @@ export const HomePage = () => {
                 return prev;
               })}
             >
-              Villains (2)
+              Villanos ({summary?.villainCount})
             </TabsTrigger>
           </TabsList>
 
