@@ -100,13 +100,13 @@ export const HomePage = () => {
 
           <TabsContent value="heroes">
             {/* Mostrar todos los héroes */}
-            <h1>Héroes</h1>
+            {/* <h1>Héroes</h1> */}
             <HeroGrid heroes={heroesResponse?.heroes ?? []} />
           </TabsContent>
 
           <TabsContent value="villains">
             {/* Mostrar todos los Villanos */}
-            <h1>Villanos</h1>
+            {/* <h1>Villanos</h1> */}
             <HeroGrid heroes={heroesResponse?.heroes ?? []} />
           </TabsContent>
         </Tabs>
