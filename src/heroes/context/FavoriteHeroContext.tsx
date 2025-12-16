@@ -16,7 +16,7 @@ export const FavoriteHeroContext = createContext({} as FavoriteHeroContext);
 
 const getFavoritesFromLocalStorage = (): Hero[] => {
     const favorites = localStorage.getItem('favorites');
-    return favorites ? JSON.parse('favorites') : [];
+    return favorites ? JSON.parse(favorites) : [];
 }
 
 
