@@ -31,6 +31,7 @@ export const HeroStats = () => {
                 </div>
             </HeroStatCard>
 
+            {/* TODO: boton de borrar favoritos */}
             <HeroStatCard
                 title="Favoritos"
                 icon={<Heart className="h-4 w-4 text-muted-foreground" />}
