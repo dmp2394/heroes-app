@@ -128,7 +128,7 @@ export const SearchControls = () => {
                                 </div>
                             </div>
                             <div className="mt-4">
-                                <label className="text-sm font-medium">Fuerza mínima: 0/10</label>
+                                <label className="text-sm font-medium">Fuerza mínima: {selectedStrength}/10</label>
                                 <Slider defaultValue={[selectedStrength]}
                                     onValueChange={value => setQueryParams('strength', value[0].toString())}
                                     max={10} step={1} />
