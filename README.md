@@ -1,6 +1,6 @@
 # Heroes App
 
-Proyecto educativo desarrollado en React y TypeScript para practicar el desarrollo de una aplicación frontend completa, con foco en organización de código, tipado, manejo de datos y testing.
+Proyecto educativo desarrollado en React y TypeScript para practicar el desarrollo de una Single Page Application (SPA), con foco en organización de código, tipado, manejo de datos y testing.
 
 La aplicación permite listar héroes, ver su detalle y gestionar favoritos, simulando un flujo real de una app web.
 
