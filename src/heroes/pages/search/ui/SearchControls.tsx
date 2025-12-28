@@ -5,7 +5,7 @@ import { Search, Filter, SortAsc, Grid, Plus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Slider } from '@/components/ui/slider';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { Accordion, AccordionContent, AccordionItem } from "@/components/ui/accordion"
 
 
 export const SearchControls = () => {
@@ -92,7 +92,7 @@ export const SearchControls = () => {
             </div>
 
 
-            <Accordion type="single" collapsible value={activeAccordion}>
+            <Accordion type="single" collapsible value={activeAccordion} data-testid="accordion">
                 <AccordionItem value="advanced-filters">
                     <AccordionContent>
                         {/* Advanced Filters */}
@@ -130,8 +130,8 @@ export const SearchControls = () => {
                             <div className="mt-4">
                                 <label className="text-sm font-medium">Fuerza mínima: 0/10</label>
                                 <Slider defaultValue={[selectedStrength]}
-                                onValueChange={value => setQueryParams('strength',value[0].toString())}
-                                max={10} step={1} />
+                                    onValueChange={value => setQueryParams('strength', value[0].toString())}
+                                    max={10} step={1} />
                             </div>
                         </div>
                     </AccordionContent>
